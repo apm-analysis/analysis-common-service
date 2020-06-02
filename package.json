@@ -1,5 +1,5 @@
 {
-  "name": "analysis-common-service",
+  "name": "@apm-analysis/analysis-common-service",
   "version": "1.0.0",
   "description": "Common service to handle business logic for analysis microapp",
   "main": "module.js",
@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/apm-analysis/analysis-common-service"
+    "url": "git+https://github.com/PAE-Analysis/analysis-common-service.git"
   },
   "keywords": [
     "analysis",
@@ -19,5 +19,10 @@
   "license": "ISC",
   "dependencies": {
     "lodash": "^4.17.15"
-  }
+  },
+  "bugs": {
+    "url": "https://github.com/PAE-Analysis/analysis-common-service/issues"
+  },
+  "homepage": "https://github.com/PAE-Analysis/analysis-common-service#readme",
+  "devDependencies": {}
 }
