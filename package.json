@@ -1,0 +1,23 @@
+{
+  "name": "analysis-common-service",
+  "version": "1.0.0",
+  "description": "Common service to handle business logic for analysis microapp",
+  "main": "module.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/apm-analysis/analysis-common-service"
+  },
+  "keywords": [
+    "analysis",
+    "common",
+    "service"
+  ],
+  "author": "vibha.malviya@ge.com",
+  "license": "ISC",
+  "dependencies": {
+    "lodash": "^4.17.15"
+  }
+}
