@@ -14,7 +14,10 @@ function updateTagColorMap(oldTag, newTag, tagColorMap) {
 			tagColorMap[newTag.sourceKey] = tagStyle;
 		}
 	});
-	delete tagColorMap[oldTag.sourceKey];
+	// delete old source key for tag if it is different
+	if (oldTag.sourceKey !== newTag.sourceKey) {
+		delete tagColorMap[oldTag.sourceKey];
+	}
 }
 
 module.exports = {
