@@ -1,6 +1,6 @@
 {
   "name": "@apm-analysis/analysis-common-service",
-  "version": "1.0.1",
+  "version": "1.1.1",
   "description": "Common service to handle business logic for analysis microapp",
   "main": "module.js",
   "scripts": {
