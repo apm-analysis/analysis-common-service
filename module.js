@@ -1,5 +1,5 @@
 const _ = require('lodash');
-const filter = require('./filters');
+const filterBehavior = require('./filter-behavior');
 
 /**
  *
@@ -23,5 +23,5 @@ function updateTagColorMap(oldTag, newTag, tagColorMap) {
 
 module.exports = {
 	updateTagColorMap: updateTagColorMap,
-	filter
+	filterBehavior
 };
