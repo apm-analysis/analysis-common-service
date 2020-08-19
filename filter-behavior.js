@@ -355,5 +355,8 @@ module.exports = {
 	_getUniqueStrings: _getUniqueStrings,
 	_getMinMax: _getMinMax,
 	updateFilter: updateFilter,
-
+	collectExcludedRanges: _collectExcludedRanges,
+	collectExcludedRangesForString: _collectExcludedRangesForString,
+	isInRange: _isInRange,
+	isValueFiltered: _isValueFiltered
 };
