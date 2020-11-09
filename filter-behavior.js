@@ -229,7 +229,6 @@ function _collectExcludedRangesForString(excludedRanges, filter, nextTagData, ts
  *
  **/
 function _getUniqueStrings(values) {
-	console.log('_getUniqueStrings for CBF for ****** ', values);
 	const set = new Set();
 	const numRegex = /^-?\d*[.]?\d+e?\d*$/; // allows floats, exponentials
 
@@ -325,8 +324,6 @@ function _isInRange(ranges, timestamp) {
 function updateFilter(tag, filters, assetName) {
 	// Tag name will be same for Value based and condition based filter
 	// So we need to iterate through each filter and resolve
-
-	console.log('update filter for prefetch ********* ');
 	_.forEach(filters, (filter) => {
 		if (filter.tagName === tag.name) {
 		resolveFilterWithTagProperties(filter, tag, assetName);
@@ -347,7 +344,6 @@ function resolveFilterWithTagProperties(filter, tag, assetName) {
 	} else {
 		tempFilter.assetName = assetName;
 	}
-	console.log('tempFilter  in resolveFilterWithTagProperties ', tempFilter);
 }
 
 module.exports = {
