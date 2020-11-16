@@ -1,6 +1,8 @@
 const { LexerParser, LexerToken } = require('./LexerParser');
+const { getParsedSrcKeyFormula } = require('./utils');
 
 module.exports = {
     LexerParser,
-    LexerToken
+    LexerToken,
+    getParsedSrcKeyFormula
 };
