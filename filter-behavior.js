@@ -294,9 +294,16 @@ function _isValueFiltered(filter, value) {
 	if (filter.min === DEFAULT_CBF_MIN_MAX && filter.max === DEFAULT_CBF_MIN_MAX) {
 		return true;
 	}
-	return (filter.inverted ?
-		(value <= filter.min) || (value >= filter.max) :
-		(value >= filter.min) && (value <= filter.max));
+
+	if (filter.inverted) {
+		const isMinOk = filter.minChanged ? value <= filter.min : true;
+		const isMaxOk = filter.maxChanged ? value >= filter.max : true;
+		return isMinOk || isMaxOk;
+	} else {
+		const isMinOk = filter.minChanged ? value >= filter.min : true;
+		const isMaxOk = filter.maxChanged ? value <= filter.max : true;
+		return isMinOk && isMaxOk;
+	}
 }
 
 /**
