@@ -295,7 +295,9 @@ function _isValueFiltered(filter, value) {
 		return true;
 	}
 
-	// consider: minChanged or maxChanged // DE156034
+	// DE156034: If saved template filter min value is changed and max value is not changed,
+	// it is considering maxValue - even though max filter is not applied.
+	// use: 'minChanged' or 'maxChanged' property - to know filter is applied or not
 	// if: inverted
 	if (filter.inverted) {
 		const isMinOk = filter.minChanged ? value <= filter.min : true;
