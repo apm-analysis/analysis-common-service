@@ -295,15 +295,17 @@ function _isValueFiltered(filter, value) {
 		return true;
 	}
 
+	// consider: minChanged or maxChanged // DE156034
+	// if: inverted
 	if (filter.inverted) {
 		const isMinOk = filter.minChanged ? value <= filter.min : true;
 		const isMaxOk = filter.maxChanged ? value >= filter.max : true;
 		return isMinOk || isMaxOk;
-	} else {
-		const isMinOk = filter.minChanged ? value >= filter.min : true;
-		const isMaxOk = filter.maxChanged ? value <= filter.max : true;
-		return isMinOk && isMaxOk;
 	}
+	// else:
+	const isMinOk = filter.minChanged ? value >= filter.min : true;
+	const isMaxOk = filter.maxChanged ? value <= filter.max : true;
+	return isMinOk && isMaxOk;
 }
 
 /**
