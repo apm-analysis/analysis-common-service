@@ -294,9 +294,20 @@ function _isValueFiltered(filter, value) {
 	if (filter.min === DEFAULT_CBF_MIN_MAX && filter.max === DEFAULT_CBF_MIN_MAX) {
 		return true;
 	}
-	return (filter.inverted ?
-		(value <= filter.min) || (value >= filter.max) :
-		(value >= filter.min) && (value <= filter.max));
+
+	// DE156034: If saved template filter min value is changed and max value is not changed,
+	// it is considering maxValue - even though max filter is not applied.
+	// use: 'minChanged' or 'maxChanged' property - to know filter is applied or not
+	// if: inverted
+	if (filter.inverted) {
+		const isMinOk = filter.minChanged ? value <= filter.min : true;
+		const isMaxOk = filter.maxChanged ? value >= filter.max : true;
+		return isMinOk || isMaxOk;
+	}
+	// else:
+	const isMinOk = filter.minChanged ? value >= filter.min : true;
+	const isMaxOk = filter.maxChanged ? value <= filter.max : true;
+	return isMinOk && isMaxOk;
 }
 
 /**
