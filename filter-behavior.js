@@ -289,6 +289,17 @@ function _isValueFiltered(filter, value) {
 			filter.selectedStringValue.val !== value :
 			filter.selectedStringValue.val === value);
 	}
+	
+	// US566915: Support checkbox while adding tag or tag expression as CBF
+	// Once discreteDatapoints is passed in a CBF then only those timestamps should be filtered in the response
+	if (!_.isEmpty(filter.discreteDatapoints)) {
+		if(filter.discreteDatapoints.includes(value)) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+	
 	// if cbf is just added filter.min and filter.max will be -999999999990
 	// we dont need to apply any filter for this range. So always return true.
 	if (filter.min === DEFAULT_CBF_MIN_MAX && filter.max === DEFAULT_CBF_MIN_MAX) {
